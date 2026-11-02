@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <meta name="theme-color" content="#fff6f5">
+
+    <title>Our Time Together ♡</title>
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap"
+          rel="stylesheet">
+
+
+    <style>
+
+        /* =========================
+           GLOBAL
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pink: #d98da1;
+            --dark: #59434c;
+            --muted: #a58b94;
+            --cream: #fff8f5;
+        }
+
+        body {
+
+            min-height: 100vh;
+            min-height: 100svh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 25px 18px;
+
+            font-family: 'DM Sans', sans-serif;
+
+            color: var(--dark);
+
+            background:
+
+                radial-gradient(
+                    circle at 10% 10%,
+                    #fce0e8,
+                    transparent 40%
+                ),
+
+                radial-gradient(
+                    circle at 90% 90%,
+                    #eadff9,
+                    transparent 40%
+                ),
+
+                #fff8f5;
+
+            overflow-x: hidden;
+
+            -webkit-tap-highlight-color: transparent;
+
+        }
+
+
+        /* =========================
+           FLOATING HEARTS
+        ========================= */
+
+        #hearts {
+
+            position: fixed;
+
+            inset: 0;
+
+            overflow: hidden;
+
+            pointer-events: none;
+
+            z-index: 0;
+
+        }
+
+        .heart {
+
+            position: absolute;
+
+            bottom: -40px;
+
+            opacity: 0;
+
+            animation: floatHeart linear forwards;
+
+        }
+
+        @keyframes floatHeart {
+
+            0% {
+
+                transform: translateY(0) rotate(0deg);
+
+                opacity: 0;
+
+            }
+
+            15% {
+
+                opacity: 0.45;
+
+            }
+
+            85% {
+
+                opacity: 0.45;
+
+            }
+
+            100% {
+
+                transform: translateY(-110vh) rotate(40deg);
+
+                opacity: 0;
+
+            }
+
+        }
+
+
+        /* =========================
+           MAIN CARD
+        ========================= */
+
+        .main-card {
+
+            width: min(100%, 620px);
+
+            padding: 48px 30px;
+
+            text-align: center;
+
+            background: rgba(255, 255, 255, 0.72);
+
+            border: 1px solid rgba(255,255,255,0.9);
+
+            border-radius: 30px;
+
+            backdrop-filter: blur(20px);
+
+            -webkit-backdrop-filter: blur(20px);
+
+            box-shadow:
+
+                0 25px 80px rgba(130, 80, 100, 0.10);
+
+            position: relative;
+
+            z-index: 2;
+
+            animation: appear 1s ease;
+
+        }
+
+        @keyframes appear {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(25px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+
+            }
+
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .top-label {
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            color: var(--pink);
+
+            margin-bottom: 22px;
+
+        }
+
+        .main-heart {
+
+            font-size: 55px;
+
+            display: inline-block;
+
+            margin-bottom: 20px;
+
+            animation: heartbeat 2s infinite;
+
+        }
+
+        @keyframes heartbeat {
+
+            0%, 100% {
+
+                transform: scale(1);
+
+            }
+
+            50% {
+
+                transform: scale(1.12);
+
+            }
+
+        }
+
+        h1 {
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: clamp(34px, 8vw, 48px);
+
+            font-weight: 600;
+
+            margin-bottom: 12px;
+
+            color: #59434c;
+
+        }
+
+        .subtitle {
+
+            font-size: 14px;
+
+            color: var(--muted);
+
+            line-height: 1.8;
+
+            margin-bottom: 35px;
+
+        }
+
+
+        /* =========================
+           START DATE
+        ========================= */
+
+        .start-date {
+
+            display: inline-block;
+
+            padding: 10px 20px;
+
+            border-radius: 50px;
+
+            background: #fff0f3;
+
+            color: #b9788c;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            letter-spacing: 0.5px;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        /* =========================
+           COUNTER
+        ========================= */
+
+        .counter-title {
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 23px;
+
+            font-weight: 500;
+
+            margin-bottom: 22px;
+
+        }
+
+        .counter-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 12px;
+
+            margin-bottom: 30px;
+
+        }
+
+        .counter-box {
+
+            padding: 22px 8px;
+
+            background: rgba(255, 242, 245, 0.8);
+
+            border: 1px solid #f9e5ea;
+
+            border-radius: 18px;
+
+            transition: transform 0.3s ease;
+
+        }
+
+        .counter-number {
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: clamp(25px, 6vw, 36px);
+
+            font-weight: 600;
+
+            color: #bd788e;
+
+            font-variant-numeric: tabular-nums;
+
+        }
+
+        .counter-label {
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+            color: #a58b94;
+
+            margin-top: 8px;
+
+        }
+
+
+        /* =========================
+           TOTAL DAYS
+        ========================= */
+
+        .total-days {
+
+            padding: 22px;
+
+            background: linear-gradient(
+                135deg,
+                #fce8ed,
+                #f8edf6
+            );
+
+            border-radius: 20px;
+
+            margin-bottom: 28px;
+
+        }
+
+        .total-days-label {
+
+            font-size: 11px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            color: #a47d8a;
+
+            font-weight: 700;
+
+            margin-bottom: 8px;
+
+        }
+
+        .total-days-number {
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 34px;
+
+            font-weight: 600;
+
+            color: #b9788c;
+
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        .footer {
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 17px;
+
+            font-style: italic;
+
+            color: #987783;
+
+            line-height: 1.8;
+
+        }
+
+        .footer-heart {
+
+            display: inline-block;
+
+            color: #d98da1;
+
+            animation: heartbeat 2s infinite;
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 480px) {
+
+            body {
+
+                padding: 18px 14px;
+
+            }
+
+            .main-card {
+
+                padding: 38px 18px;
+
+                border-radius: 25px;
+
+            }
+
+            .counter-grid {
+
+                gap: 7px;
+
+            }
+
+            .counter-box {
+
+                padding: 18px 4px;
+
+                border-radius: 14px;
+
+            }
+
+            .counter-number {
+
+                font-size: 27px;
+
+            }
+
+            .counter-label {
+
+                font-size: 9px;
+
+                letter-spacing: 1px;
+
+            }
+
+            .counter-title {
+
+                font-size: 21px;
+
+            }
+
+            .total-days-number {
+
+                font-size: 30px;
+
+            }
+
+        }
+
+
+        /* =========================
+           REDUCED MOTION
+        ========================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+
+                animation: none !important;
+
+                transition: none !important;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- FLOATING HEARTS -->
+
+    <div id="hearts"></div>
+
+
+
+    <!-- MAIN WEBSITE -->
+
+    <main class="main-card">
+
+
+        <!-- HEADER -->
+
+        <div class="top-label">
+
+            A LITTLE STORY OF US
+
+        </div>
+
+
+        <div class="main-heart">
+
+            ❤️
+
+        </div>
+
+
+        <h1>
+
+            Our Time Together
+
+        </h1>
+
+
+        <p class="subtitle">
+
+            Every moment, every memory,<br>
+
+            and every second since we began.
+
+        </p>
+
+
+
+        <!-- ANNIVERSARY DATE -->
+
+        <div class="start-date">
+
+            ♡ May 11, 2023 &nbsp; | &nbsp; 7:30 PM ♡
+
+        </div>
+
+
+
+        <!-- LIVE COUNTER -->
+
+        <h2 class="counter-title">
+
+            Together for...
+
+        </h2>
+
+
+        <div class="counter-grid">
+
+
+            <div class="counter-box">
+
+                <div class="counter-number" id="days">
+
+                    0
+
+                </div>
+
+                <div class="counter-label">
+
+                    Days
+
+                </div>
+
+            </div>
+
+
+
+            <div class="counter-box">
+
+                <div class="counter-number" id="hours">
+
+                    00
+
+                </div>
+
+                <div class="counter-label">
+
+                    Hours
+
+                </div>
+
+            </div>
+
+
+
+            <div class="counter-box">
+
+                <div class="counter-number" id="minutes">
+
+                    00
+
+                </div>
+
+                <div class="counter-label">
+
+                    Minutes
+
+                </div>
+
+            </div>
+
+
+
+            <div class="counter-box">
+
+                <div class="counter-number" id="seconds">
+
+                    00
+
+                </div>
+
+                <div class="counter-label">
+
+                    Seconds
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- TOTAL DAYS -->
+
+        <div class="total-days">
+
+
+            <div class="total-days-label">
+
+                Every single day counts
+
+            </div>
+
+
+            <div class="total-days-number">
+
+                <span id="totalDays">0</span> Days
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- FOOTER -->
+
+        <div class="footer">
+
+            And the story continues...
+
+            <span class="footer-heart">♥</span>
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+
+        /* =========================
+           ANNIVERSARY DATE
+        ========================= */
+
+        // May 11, 2023 - 7:30 PM
+        // Uses the visitor's local timezone.
+        // In Sri Lanka, this is UTC+05:30.
+
+        const anniversary = new Date(
+            2023,
+            4,
+            11,
+            19,
+            30,
+            0
+        );
+
+
+        /* =========================
+           LIVE COUNTER
+        ========================= */
+
+        function updateCounter() {
+
+            const now = new Date();
+
+            let difference =
+                now.getTime() - anniversary.getTime();
+
+
+            // Prevent negative values
+
+            if (difference < 0) {
+
+                difference = 0;
+
+            }
+
+
+            // Convert milliseconds
+
+            const totalSeconds =
+                Math.floor(difference / 1000);
+
+
+            const totalMinutes =
+                Math.floor(totalSeconds / 60);
+
+
+            const totalHours =
+                Math.floor(totalMinutes / 60);
+
+
+            const totalDays =
+                Math.floor(totalHours / 24);
+
+
+            // Remaining time
+
+            const days =
+                Math.floor(totalHours / 24);
+
+
+            const hours =
+                Math.floor((totalSeconds % 86400) / 3600);
+
+
+            const minutes =
+                Math.floor((totalSeconds % 3600) / 60);
+
+
+            const seconds =
+                totalSeconds % 60;
+
+
+            // Display values
+
+            document.getElementById("days").textContent =
+                days.toLocaleString("en-US");
+
+
+            document.getElementById("hours").textContent =
+                String(hours).padStart(2, "0");
+
+
+            document.getElementById("minutes").textContent =
+                String(minutes).padStart(2, "0");
+
+
+            document.getElementById("seconds").textContent =
+                String(seconds).padStart(2, "0");
+
+
+            document.getElementById("totalDays").textContent =
+                totalDays.toLocaleString("en-US");
+
+        }
+
+
+        // Initial calculation
+
+        updateCounter();
+
+
+        // Update every second
+
+        setInterval(updateCounter, 1000);
+
+
+
+        /* =========================
+           FLOATING HEARTS
+        ========================= */
+
+        const heartContainer =
+            document.getElementById("hearts");
+
+
+        const heartSymbols = [
+
+            "♡",
+
+            "♥",
+
+            "💕",
+
+            "💗",
+
+            "✨"
+
+        ];
+
+
+        function createHeart() {
+
+            const heart =
+                document.createElement("div");
+
+
+            heart.className = "heart";
+
+
+            heart.textContent =
+
+                heartSymbols[
+                    Math.floor(
+                        Math.random() * heartSymbols.length
+                    )
+                ];
+
+
+            heart.style.left =
+                Math.random() * 100 + "%";
+
+
+            heart.style.fontSize =
+
+                (Math.random() * 15 + 14) + "px";
+
+
+            heart.style.animationDuration =
+
+                (Math.random() * 6 + 8) + "s";
+
+
+            heartContainer.appendChild(heart);
+
+
+            setTimeout(() => {
+
+                heart.remove();
+
+            }, 15000);
+
+        }
+
+
+        // Create floating hearts periodically
+
+        setInterval(createHeart, 1100);
+
+
+    </script>
+
+
+</body>
+
+</html>
